@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@300&display=swap");
+
+* {
+    font-family: "Gemunu Libre", cursive;
+    font-weight: bold;
+}
+
+.navbar {
+    padding: right 20px, left 20px;
+    display: flex;
+    border: 0.3rem;
+    box-shadow: 2px 2px 2px 1px black;
+    background-color: aquamarine;
+}
+
+.button {
+
+    box-shadow: 10px 7px 13px -1px #000000;
+    background-color: aquamarine;
+    border-radius: 5%;
+    width: 100px;
+    margin-left: 39%;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+body {
+
+    background-color: rgb(85, 92, 120);
+
+}
+
+input {
+    margin-top: 5%;
+
+}
+
+div {
+
+    text-align: center;
+}
+
+h3 {
+    font-size:larger; 
+    font-weight: bolder;
+    text-decoration: underline;
+}
