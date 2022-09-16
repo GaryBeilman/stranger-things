@@ -10,7 +10,7 @@ const Login = ({ setToken, navigate }) => {
     if (results.success) {
       setToken(results.data.token);
       window.localStorage.setItem('token', results.data.token);
-      navigate('/profile');
+      navigate('/posts');
     } else {
       console.log(results.error.message)
     }

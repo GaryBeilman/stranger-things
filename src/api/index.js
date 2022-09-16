@@ -109,7 +109,7 @@ export const createPost = async (token, {title, description, price, location, wi
 
 export const updatePost = async ({token, title, description, price, location, willDeliver, _id})=> {
   try {
-    const response = await fetch(`${baseURL}/posts/${[_id]}`, {
+    const response = await fetch(`${baseURL}/posts/${_id}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',

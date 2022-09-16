@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+
 const Posts = ({ posts }) => {
   const [searchTerm, setSearchTerm] = useState('');
   
@@ -29,6 +30,7 @@ const Posts = ({ posts }) => {
              onChange = {(event) => setSearchTerm(event.target.value)}
             ></input>
             <button type='Search'>Search</button>
+            <button id="btn" > <Link to={'/posts/create-post'}>New</Link></button>
            </form>  
           </div>
     {

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { updatePost, deletePost } from '../api';
 
 const EditPost = ({ posts, token }) => {
   const { postID } = useParams();
   
   const [currentPost] = posts.filter(post => post._id === postID);
-  
   const {title, description, location, price, willDeliver} = currentPost;
   
   const [newTitle, setNewTitle] = useState(title);
@@ -14,6 +13,9 @@ const EditPost = ({ posts, token }) => {
   const [newLocation, setNewLocation] = useState(location);
   const [newPrice, setNewPrice] = useState(price);
   const [newWillDeliver, setNewWillDeliver] = useState(willDeliver);
+
+  const navigate = useNavigate();
+
   
   async function editPost() {
     const updatedPost = {
@@ -25,7 +27,10 @@ const EditPost = ({ posts, token }) => {
       willDeliver: newWillDeliver,
       _id: postID
     }
-    await updatePost(updatedPost)
+    
+    const updatesPost = await updatePost(updatedPost)
+    navigate('/posts'); 
+    console.log(updatesPost)
   }
   
   
@@ -66,14 +71,16 @@ const EditPost = ({ posts, token }) => {
       />
 
       <br></br>
-
+      
+      Will Deliver
       <input className='newWillDeliver'
         type='checkbox'
         checked={newWillDeliver}
         onChange={(ev) => setNewWillDeliver(ev.target.checked)}
       />
-      <button type='submit'>Edit Post</button>
-      <button type="submit" onClick={() =>{ 
+      <br></br>
+      <button type='submit'>Submit</button>
+      <button onClick={() =>{ 
       deletePost(token,postID);
       }}>       
       Delete</button>
